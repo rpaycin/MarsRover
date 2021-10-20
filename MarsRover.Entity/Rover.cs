@@ -6,15 +6,15 @@ namespace MarsRover.Entity
 {
     public class Rover
     {
-        private int x { get; set; }
+        public int X { get; set; }
 
-        private int y { get; set; }
+        public int Y { get; set; }
+
+        public string Direction;
 
         private int maxRow;
 
         private int maxCol;
-
-        private string direction;
 
         private Rover() { }
 
@@ -24,10 +24,10 @@ namespace MarsRover.Entity
 
             if (splittedLocations != null && splittedLocations.Length == 3)
             {
-                this.x = Convert.ToInt32(splittedLocations[0]);
-                this.y = Convert.ToInt32(splittedLocations[1]);
+                this.X = Convert.ToInt32(splittedLocations[0]);
+                this.Y = Convert.ToInt32(splittedLocations[1]);
 
-                direction = splittedLocations[2];
+                Direction = splittedLocations[2];
 
                 this.maxRow = maxRow;
                 this.maxCol = maxCol;
@@ -55,45 +55,45 @@ namespace MarsRover.Entity
 
         public void DisplayPosition()
         {
-            Console.WriteLine(string.Format("{0} {1} {2}", x, y, direction));
+            Console.WriteLine(string.Format("{0} {1} {2}", X, Y, Direction));
         }
 
         private void TurnLeft()
         {
-            int index = Array.IndexOf(Constants.Directions, direction);
+            int index = Array.IndexOf(Constants.Directions, Direction);
             if (index > -1 && index < Constants.Directions.Length)
             {
-                direction = Constants.Directions[(index - 1 + Constants.Directions.Length) % Constants.Directions.Length];
+                Direction = Constants.Directions[(index - 1 + Constants.Directions.Length) % Constants.Directions.Length];
             }
         }
 
         private void TurnRight()
         {
-            int index = Array.IndexOf(Constants.Directions, direction);
+            int index = Array.IndexOf(Constants.Directions, Direction);
 
             if (index > -1 && index < Constants.Directions.Length)
             {
-                direction = Constants.Directions[(index + 1) % Constants.Directions.Length];
+                Direction = Constants.Directions[(index + 1) % Constants.Directions.Length];
             }
         }
 
         private void Move()
         {
-            if (direction == Direction.North.GetDescription() && y < maxRow)
+            if (Direction == Entity.Direction.North.GetDescription() && Y < maxRow)
             {
-                y = y + 1;
+                Y = Y + 1;
             }
-            else if (direction == Direction.West.GetDescription() && x > 0)
+            else if (Direction == Entity.Direction.West.GetDescription() && X > 0)
             {
-                x = x - 1;
+                X = X - 1;
             }
-            else if (direction == Direction.South.GetDescription() && y > 0)
+            else if (Direction == Entity.Direction.South.GetDescription() && Y > 0)
             {
-                y = y - 1;
+                Y = Y - 1;
             }
-            else if (direction == Direction.East.GetDescription() && x < maxCol)
+            else if (Direction == Entity.Direction.East.GetDescription() && X < maxCol)
             {
-                x = x + 1;
+                X = X + 1;
             }
         }
     }
