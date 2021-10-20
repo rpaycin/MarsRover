@@ -30,12 +30,12 @@ namespace MarsRover.Test
             string input5 = "MMRMMRMRRM";
 
             var information = GetRowCol();
-            var rover1 = new Rover(input4, information.Item1, information.Item2);
-            rover1.Move(input5);
+            var rover2 = new Rover(input4, information.Item1, information.Item2);
+            rover2.Move(input5);
 
-            Assert.AreEqual(5, rover1.X);
-            Assert.AreEqual(1, rover1.Y);
-            Assert.AreEqual("E", rover1.Direction);
+            Assert.AreEqual(5, rover2.X);
+            Assert.AreEqual(1, rover2.Y);
+            Assert.AreEqual("E", rover2.Direction);
         }
 
         Tuple<int, int> GetRowCol()
