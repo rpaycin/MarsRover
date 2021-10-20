@@ -81,19 +81,19 @@ namespace MarsRover.Entity
         {
             if (Direction == Entity.Direction.North.GetDescription() && Y < maxRow)
             {
-                Y = Y + 1;
+                Y++;
             }
             else if (Direction == Entity.Direction.West.GetDescription() && X > 0)
             {
-                X = X - 1;
+                X--;
             }
             else if (Direction == Entity.Direction.South.GetDescription() && Y > 0)
             {
-                Y = Y - 1;
+                Y--;
             }
             else if (Direction == Entity.Direction.East.GetDescription() && X < maxCol)
             {
-                X = X + 1;
+                X++;
             }
         }
     }
