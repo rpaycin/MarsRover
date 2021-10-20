@@ -15,7 +15,7 @@ namespace MarsRover.Test
             string input3 = "LMLMLMLMM";
 
             var information = GetRowCol();
-            var rover1 = new Rover(input2, information.Item1, information.Item1);
+            var rover1 = new Rover(input2, information.Item1, information.Item2);
             rover1.Move(input3);
 
             Assert.AreEqual(1, rover1.X);
@@ -30,7 +30,7 @@ namespace MarsRover.Test
             string input5 = "MMRMMRMRRM";
 
             var information = GetRowCol();
-            var rover1 = new Rover(input4, information.Item1, information.Item1);
+            var rover1 = new Rover(input4, information.Item1, information.Item2);
             rover1.Move(input5);
 
             Assert.AreEqual(5, rover1.X);
